@@ -16,7 +16,7 @@ This repository is a template and a functioning example for a basic JFrog CLI pl
 * None. *(If there are any special requirement for using your plugin, list them here.)*
 
 # Commands Documentation
-TODO. Maybe link to a DOC file.
+TODO.
 
 # Release Notes
-The release notes are available on TODO-Maybe force semantic versioning.
+The release notes are available [here](RELEASE.md).
