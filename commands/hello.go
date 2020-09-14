@@ -57,27 +57,42 @@ func getHelloEnvVar() []components.EnvVar {
 	}
 }
 
+type helloConfiguration struct {
+	addressee string
+	shout     bool
+	repeat    int
+	prefix    string
+}
+
 func helloCmd(c *components.Context) error {
 	if len(c.Arguments) != 1 {
 		return errors.New("Wrong number of arguments. Expected: 1, " + "Received: " + strconv.Itoa(len(c.Arguments)))
 	}
-	prefix := os.Getenv("HELLO_EXAMPLE_GREET_PREFIX")
-	if prefix == "" {
-		prefix = "A new greet from your plugin template: "
-	}
-	greet := prefix + "Hello " + c.Arguments[0] + "!"
-
-	if c.GetBoolFlagValue("shout") {
-		greet = strings.ToUpper(greet)
-	}
+	var conf = new(helloConfiguration)
+	conf.addressee = c.Arguments[0]
+	conf.shout = c.GetBoolFlagValue("shout")
 
 	repeat, err := strconv.Atoi(c.GetStringFlagValue("repeat"))
 	if err != nil {
 		return err
 	}
-	for i := 0; i < repeat; i++ {
-		log.Output(greet)
+	conf.repeat = repeat
+
+	conf.prefix = os.Getenv("HELLO_EXAMPLE_GREET_PREFIX")
+	if conf.prefix == "" {
+		conf.prefix = "A new greet from your plugin template: "
 	}
 
+	log.Output(doGreet(conf))
 	return nil
+}
+
+func doGreet(c *helloConfiguration) string {
+	greet := c.prefix + "Hello " + c.addressee + "!\n"
+
+	if c.shout {
+		greet = strings.ToUpper(greet)
+	}
+
+	return strings.TrimSpace(strings.Repeat(greet, c.repeat))
 }
