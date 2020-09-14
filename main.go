@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	plugins.JfrogPluginMain(getApp())
+	plugins.PluginMain(getApp())
 }
 
 func getApp() components.App {
