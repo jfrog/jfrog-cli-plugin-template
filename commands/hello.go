@@ -16,7 +16,7 @@ func GetHelloCommand() components.Command {
 		Aliases:     []string{"hi"},
 		Arguments:   getHelloArguments(),
 		Flags:       getHelloFlags(),
-		EnvArgs:     getHelloEnvVar(),
+		EnvVars:     getHelloEnvVar(),
 		Action: func(c *components.Context) error {
 			return helloCmd(c)
 		},
