@@ -80,7 +80,7 @@ func helloCmd(c *components.Context) error {
 
 	conf.prefix = os.Getenv("HELLO_FROG_GREET_PREFIX")
 	if conf.prefix == "" {
-		conf.prefix = "A new greet from your plugin template: "
+		conf.prefix = "New greeting: "
 	}
 
 	log.Output(doGreet(conf))

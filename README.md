@@ -21,9 +21,15 @@ Installing a specific version:
     - flags:
         - shout: Makes output uppercase **[Default: false]**
         - repeat: Greets multiple times **[Default: 1]**
+    - example:
+    ```
+  # jfrog hello-frog hello world --shout --repeat=2
+  NEW GREETING: HELLO WORLD!
+  NEW GREETING: HELLO WORLD!
+  ```
 
 ### Environment variables
-* HELLO_FROG_GREET_PREFIX - Adds a prefix to every greet **[Default: A new greet from your plugin template: ]**
+* HELLO_FROG_GREET_PREFIX - Adds a prefix to every greet **[Default: New greeting: ]**
 
 ## Additional info
 None.
