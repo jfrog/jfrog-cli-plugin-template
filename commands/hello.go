@@ -50,7 +50,7 @@ func getHelloFlags() []components.Flag {
 func getHelloEnvVar() []components.EnvVar {
 	return []components.EnvVar{
 		{
-			Name:        "HELLO_EXAMPLE_GREET_PREFIX",
+			Name:        "HELLO_FROG_GREET_PREFIX",
 			Default:     "A new greet from your plugin template: ",
 			Description: "Adds a prefix to every greet.",
 		},
@@ -78,7 +78,7 @@ func helloCmd(c *components.Context) error {
 	}
 	conf.repeat = repeat
 
-	conf.prefix = os.Getenv("HELLO_EXAMPLE_GREET_PREFIX")
+	conf.prefix = os.Getenv("HELLO_FROG_GREET_PREFIX")
 	if conf.prefix == "" {
 		conf.prefix = "A new greet from your plugin template: "
 	}

@@ -1,22 +1,32 @@
-# Table of Contents
-- [Overview](#overview)
-- [Installing the Plugin](#installing-the-plugin)
-- [Usage Requirements](#usage-requirements)
-- [Commands Documentation](#commands-documentation)
-- [Release Notes](#release-notes)
+# hello-frog
 
-# Overview
-This repository is a template and a functioning example for a basic JFrog CLI plugin. This README shows the expected structure of your plugin.
-*(Replace with an overview of your plugin)*
+## About this plugin
+This plugin is a template and a functioning example for a basic JFrog CLI plugin. 
+This README shows the expected structure of your plugin's README.
 
-# Installing the Plugin
-``jfrog plugin-install plugin-template`` *(Replace with your plugin name)*
+## Installation with JFrog CLI
+Installing the latest version:
 
-# Usage Requirements
-* None. *(If there are any special requirement for using your plugin, list them here.)*
+`$ jfrog plugin-install hello-frog`
 
-# Commands Documentation
-TODO.
+Installing a specific version:
 
-# Release Notes
+`$ jfrog plugin-install hello-frog@version`
+
+## Usage
+### Commands
+* hello
+    - arguments:
+        - addressee - The name of the person you would like to greet.
+    - flags:
+        - shout: Makes output uppercase **[Default: false]**
+        - repeat: Greets multiple times **[Default: 1]**
+
+### Environment variables
+* HELLO_FROG_GREET_PREFIX - Adds a prefix to every greet **[Default: A new greet from your plugin template: ]**
+
+## Additional info
+None.
+
+## Release Notes
 The release notes are available [here](RELEASE.md).
