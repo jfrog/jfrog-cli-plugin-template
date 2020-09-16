@@ -13,6 +13,10 @@ Installing a specific version:
 
 `$ jfrog plugin-install hello-frog@version`
 
+Uninstalling a plugin
+
+`$ jfrog plugin-uninstall hello-frog`
+
 ## Usage
 ### Commands
 * hello
@@ -23,7 +27,7 @@ Installing a specific version:
         - repeat: Greets multiple times **[Default: 1]**
     - example:
     ```
-  # jfrog hello-frog hello world --shout --repeat=2
+  $ jfrog hello-frog hello world --shout --repeat=2
   NEW GREETING: HELLO WORLD!
   NEW GREETING: HELLO WORLD!
   ```
