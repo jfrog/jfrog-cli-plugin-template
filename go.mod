@@ -6,4 +6,4 @@ require (
 	github.com/jfrog/jfrog-cli-core v0.0.1
 )
 
-replace github.com/jfrog/jfrog-cli-core => /Users/robin/intellijProjects/jfrog-cli-core
+replace github.com/jfrog/jfrog-cli-core => github.com/jfrog/jfrog-cli-core dev
