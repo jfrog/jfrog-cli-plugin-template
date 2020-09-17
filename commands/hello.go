@@ -36,12 +36,12 @@ func getHelloFlags() []components.Flag {
 	return []components.Flag{
 		components.BoolFlag{
 			Name:         "shout",
-			Usage:        "Makes output uppercase.",
+			Description:  "Makes output uppercase.",
 			DefaultValue: false,
 		},
 		components.StringFlag{
 			Name:         "repeat",
-			Usage:        "Greets multiple times.",
+			Description:  "Greets multiple times.",
 			DefaultValue: "1",
 		},
 	}
