@@ -7,15 +7,15 @@ This README shows the expected structure of your plugin's README.
 ## Installation with JFrog CLI
 Installing the latest version:
 
-`$ jfrog plugin-install hello-frog`
+`$ jfrog plugin install hello-frog`
 
 Installing a specific version:
 
-`$ jfrog plugin-install hello-frog@version`
+`$ jfrog plugin install hello-frog@version`
 
 Uninstalling a plugin
 
-`$ jfrog plugin-uninstall hello-frog`
+`$ jfrog plugin uninstall hello-frog`
 
 ## Usage
 ### Commands
