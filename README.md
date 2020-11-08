@@ -20,14 +20,15 @@ Uninstalling a plugin
 ## Usage
 ### Commands
 * hello
-    - arguments:
+    - Arguments:
         - addressee - The name of the person you would like to greet.
-    - flags:
+    - Flags:
         - shout: Makes output uppercase **[Default: false]**
         - repeat: Greets multiple times **[Default: 1]**
-    - example:
+    - Example:
     ```
   $ jfrog hello-frog hello world --shout --repeat=2
+  
   NEW GREETING: HELLO WORLD!
   NEW GREETING: HELLO WORLD!
   ```
