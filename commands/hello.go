@@ -111,7 +111,7 @@ func helloCmd(c *components.Context) error {
 }
 
 func doGreet(c *helloConfiguration) string {
-	greet := c.prefix + "Hello " + c.addressee + "!\n"
+	greet := c.prefix + "Hello " + c.addressee + "\n"
 
 	if c.shout {
 		greet = strings.ToUpper(greet)
