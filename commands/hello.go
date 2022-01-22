@@ -2,10 +2,11 @@ package commands
 
 import (
 	"errors"
+	"fmt"
 	"github.com/jfrog/jfrog-cli-core/v2/plugins/components"
+	"github.com/jfrog/jfrog-cli-core/v2/utils/coreutils"
 	"github.com/jfrog/jfrog-client-go/utils/log"
 	"os"
-	"strconv"
 	"strings"
 )
 
@@ -39,11 +40,6 @@ func getHelloFlags() []components.Flag {
 			Description:  "Makes output uppercase.",
 			DefaultValue: false,
 		},
-		components.StringFlag{
-			Name:         "repeat",
-			Description:  "Greets multiple times.",
-			DefaultValue: "1",
-		},
 	}
 }
 
@@ -60,30 +56,57 @@ func getHelloEnvVar() []components.EnvVar {
 type helloConfiguration struct {
 	addressee string
 	shout     bool
-	repeat    int
 	prefix    string
 }
 
 func helloCmd(c *components.Context) error {
-	if len(c.Arguments) != 1 {
-		return errors.New("Wrong number of arguments. Expected: 1, " + "Received: " + strconv.Itoa(len(c.Arguments)))
+	if len(c.Arguments) == 0 {
+		message := "Hello :) Now try adding an argument to the 'hi' command"
+		log.Output(message)
+		log.Debug(message)
+		log.Info(message)
+		log.Warn(message)
+		log.Error(message)
+		return nil
 	}
+	if len(c.Arguments) > 1 {
+		return errors.New("too many arguments receieved. Now run the command again, with one argument only")
+	}
+
 	var conf = new(helloConfiguration)
 	conf.addressee = c.Arguments[0]
 	conf.shout = c.GetBoolFlagValue("shout")
-
-	repeat, err := strconv.Atoi(c.GetStringFlagValue("repeat"))
-	if err != nil {
-		return err
-	}
-	conf.repeat = repeat
-
 	conf.prefix = os.Getenv("HELLO_FROG_GREET_PREFIX")
 	if conf.prefix == "" {
 		conf.prefix = "New greeting: "
 	}
 
 	log.Output(doGreet(conf))
+	log.Debug(doGreet(conf))
+	log.Info(doGreet(conf))
+	log.Warn(doGreet(conf))
+	log.Error(doGreet(conf))
+
+	if !conf.shout {
+		message := "Now try adding the --shout option to the command"
+		log.Output("")
+		log.Output(message)
+		log.Debug(message)
+		log.Info(message)
+		log.Warn(message)
+		log.Error(message)
+		return nil
+	}
+
+	if os.Getenv(coreutils.LogLevel) == "" {
+		message := fmt.Sprintf("Now try setting the %s environment variable to %s and run the command again", coreutils.LogLevel, "DEBUG")
+		log.Output("")
+		log.Output(message)
+		log.Debug(message)
+		log.Info(message)
+		log.Warn(message)
+		log.Error(message)
+	}
 	return nil
 }
 
@@ -94,5 +117,5 @@ func doGreet(c *helloConfiguration) string {
 		greet = strings.ToUpper(greet)
 	}
 
-	return strings.TrimSpace(strings.Repeat(greet, c.repeat))
+	return strings.TrimSpace(greet)
 }
