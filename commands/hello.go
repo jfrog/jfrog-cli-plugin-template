@@ -62,6 +62,7 @@ type helloConfiguration struct {
 func helloCmd(c *components.Context) error {
 	if len(c.Arguments) == 0 {
 		message := "Hello :) Now try adding an argument to the 'hi' command"
+		// You log messages using the following log levels.
 		log.Output(message)
 		log.Debug(message)
 		log.Info(message)
@@ -81,31 +82,17 @@ func helloCmd(c *components.Context) error {
 		conf.prefix = "New greeting: "
 	}
 
-	log.Output(doGreet(conf))
-	log.Debug(doGreet(conf))
 	log.Info(doGreet(conf))
-	log.Warn(doGreet(conf))
-	log.Error(doGreet(conf))
 
 	if !conf.shout {
 		message := "Now try adding the --shout option to the command"
-		log.Output("")
-		log.Output(message)
-		log.Debug(message)
 		log.Info(message)
-		log.Warn(message)
-		log.Error(message)
 		return nil
 	}
 
 	if os.Getenv(coreutils.LogLevel) == "" {
 		message := fmt.Sprintf("Now try setting the %s environment variable to %s and run the command again", coreutils.LogLevel, "DEBUG")
-		log.Output("")
-		log.Output(message)
-		log.Debug(message)
 		log.Info(message)
-		log.Warn(message)
-		log.Error(message)
 	}
 	return nil
 }
