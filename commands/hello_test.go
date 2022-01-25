@@ -8,7 +8,6 @@ import (
 func TestSimpleHello(t *testing.T) {
 	conf := &helloConfiguration{
 		addressee: "World",
-		repeat:    1,
 	}
 	assert.Equal(t, doGreet(conf), "Hello World!")
 }
@@ -16,7 +15,6 @@ func TestSimpleHello(t *testing.T) {
 func TestComplexHello(t *testing.T) {
 	conf := &helloConfiguration{
 		addressee: "World",
-		repeat:    3,
 		shout:     true,
 		prefix:    "test: ",
 	}

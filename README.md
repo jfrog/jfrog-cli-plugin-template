@@ -7,15 +7,15 @@ This README shows the expected structure of your plugin's README.
 ## Installation with JFrog CLI
 Installing the latest version:
 
-`$ jfrog plugin install hello-frog`
+`$ jf plugin install hello-frog`
 
 Installing a specific version:
 
-`$ jfrog plugin install hello-frog@version`
+`$ jf plugin install hello-frog@version`
 
 Uninstalling a plugin
 
-`$ jfrog plugin uninstall hello-frog`
+`$ jf plugin uninstall hello-frog`
 
 ## Usage
 ### Commands
@@ -24,12 +24,10 @@ Uninstalling a plugin
         - addressee - The name of the person you would like to greet.
     - Flags:
         - shout: Makes output uppercase **[Default: false]**
-        - repeat: Greets multiple times **[Default: 1]**
     - Example:
     ```
-  $ jfrog hello-frog hello world --shout --repeat=2
+  $ jf hello-frog hello world --shout
   
-  NEW GREETING: HELLO WORLD!
   NEW GREETING: HELLO WORLD!
   ```
 
