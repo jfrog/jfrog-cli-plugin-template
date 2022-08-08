@@ -9,7 +9,7 @@ func TestSimpleHello(t *testing.T) {
 	conf := &helloConfiguration{
 		addressee: "World",
 	}
-	assert.Equal(t, doGreet(conf), "Hello World!")
+	assert.Equal(t, doGreet(conf), "Hello World")
 }
 
 func TestComplexHello(t *testing.T) {
@@ -18,5 +18,5 @@ func TestComplexHello(t *testing.T) {
 		shout:     true,
 		prefix:    "test: ",
 	}
-	assert.Equal(t, doGreet(conf), "TEST: HELLO WORLD!\nTEST: HELLO WORLD!\nTEST: HELLO WORLD!")
+	assert.Equal(t, doGreet(conf), "TEST: HELLO WORLD")
 }
