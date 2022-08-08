@@ -28,7 +28,7 @@ Uninstalling a plugin
     ```
   $ jf hello-frog hello world --shout
   
-  NEW GREETING: HELLO WORLD!
+  NEW GREETING: HELLO WORLD
   ```
 
 ### Environment variables
