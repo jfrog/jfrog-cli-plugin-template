@@ -71,7 +71,7 @@ func helloCmd(c *components.Context) error {
 		return nil
 	}
 	if len(c.Arguments) > 1 {
-		return errors.New("too many arguments receieved. Now run the command again, with one argument only")
+		return errors.New("too many arguments received. Now run the command again, with one argument only")
 	}
 
 	var conf = new(helloConfiguration)
