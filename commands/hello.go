@@ -34,12 +34,13 @@ func getHelloArguments() []components.Argument {
 }
 
 func getHelloFlags() []components.Flag {
+
 	return []components.Flag{
-		components.BoolFlag{
-			Name:         "shout",
-			Description:  "Makes output uppercase.",
-			DefaultValue: false,
-		},
+		components.NewBoolFlag(
+			"shout",
+			"Makes output uppercas",
+			components.WithBoolDefaultValue(false),
+		),
 	}
 }
 
