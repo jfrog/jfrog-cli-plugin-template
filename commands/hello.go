@@ -38,7 +38,7 @@ func getHelloFlags() []components.Flag {
 	return []components.Flag{
 		components.NewBoolFlag(
 			"shout",
-			"Makes output uppercas",
+			"Makes output uppercase",
 			components.WithBoolDefaultValue(false),
 		),
 	}
